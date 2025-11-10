@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Entrada Africa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ✅ Consistent Header -->
+<header>
+  <div class="logo">Entrada Africa</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode">🌙</button>
+  <button class="menu-toggle">&#9776;</button>
+</header>
+
+
+<!-- ✅ Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Complete Your Payment</h1>
+    <p>Secure your spot at your favorite event with a simple and safe payment process.</p>
+  </div>
+</section>
+
+<!-- ✅ Payment Section -->
+<section class="payment-container">
+  <div class="payment-box">
+    <h2 id="eventName">Event Name</h2>
+    <p class="price" id="ticketPrice"></p>
+
+    <form id="paymentForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="card">Card Number</label>
+      <input type="text" id="card" maxlength="16" placeholder="1234 5678 9012 3456" required>
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" maxlength="3" placeholder="123" required>
+
+      <button type="submit" class="pay-btn">Pay Now</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Entrada Africa. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

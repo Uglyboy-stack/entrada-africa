@@ -1,0 +1,448 @@
+/* Base & Theme Colors */
+:root {
+  --primary-color: #ff6600;
+  --primary-hover: #e65500;
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: #fff;
+  --footer-bg: #222;
+  --footer-text: #aaa;
+  --paragraph-dark: #e0e0e0; /* soft text color for dark mode */
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header .logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+nav {
+  display: flex;
+  gap: 25px;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+nav a.active, nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Hamburger Menu Toggle */
+.menu-toggle {
+  display: none; /* default hidden, shown on small screens */
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff6600; /* visible in light mode */
+  transition: color 0.3s ease;
+}
+
+/* Hamburger color in dark mode */
+body.dark-mode .menu-toggle {
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+.hero h1, .hero h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+.hero p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+/* Container & Cards */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.card, .event-card, .team-member, .contact-form, .contact-info {
+  background-color: var(--card-bg);
+  padding: 25px 20px;
+  border-radius: 12px;
+  max-width: 350px;
+  flex: 1 1 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.card h2, .card h3, .card h4,
+.team-member h4, .event-card h3,
+.contact-form h2, .contact-info h2 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+.card p, .team-member p, .event-card p, .contact-info p {
+  color: var(--text-color);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.card:hover, .team-member:hover, .event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+button, .buy-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover, .buy-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Forms */
+form input, form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Event Search */
+.event-search {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.event-search input {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.event-search input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(255,102,0,0.25);
+  outline: none;
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 40px 20px;
+}
+footer p {
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--card-bg);
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  nav.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block; /* show hamburger on small screens */
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* CTA Section Styling */
+.cta-section .cta-heading {
+  color: #000;
+}
+.cta-section .cta-text {
+  color: #333;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Payment Page */
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+.payment-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.payment-box h2 {
+  color: var(--primary-color);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.payment-box .price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+.payment-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+.payment-box label {
+  font-weight: 600;
+  color: #333;
+}
+.payment-box input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  transition: border 0.2s ease;
+}
+.payment-box input:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 4px rgba(255,102,0,0.3);
+}
+.pay-btn {
+  margin-top: 15px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.pay-btn:hover {
+  background-color: #e65c00;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(255,102,0,0.4);
+}
+
+/* === Dark Mode Styles === */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+header.dark-mode, footer.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+nav.dark-mode a {
+  color: #f0f0f0;
+}
+.hero.dark-mode {
+  background: linear-gradient(135deg, #333, #111);
+  color: #f0f0f0;
+}
+.hero.dark-mode h1,
+.hero.dark-mode h2 {
+  color: #ff6600;
+}
+.hero.dark-mode p {
+  color: #f0f0f0;
+}
+.event-card.dark-mode {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  border: 1px solid #333;
+}
+.event-card.dark-mode h3 {
+  color: #fff;
+}
+.event-card.dark-mode p {
+  color: #f0f0f0;
+}
+.buy-btn.dark-mode {
+  background-color: #ff6600;
+  color: #fff;
+}
+.cta-section.dark-mode {
+  background: linear-gradient(135deg, #ff6600, #cc6600);
+  color: #f0f0f0;
+}
+.cta-section.dark-mode .cta-heading {
+  color: #fff;
+}
+.cta-section.dark-mode .cta-text {
+  color: #f0f0f0;
+}
+.payment-box.dark-mode {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+}
+.payment-box.dark-mode h2 {
+  color: #ff6600;
+}
+.payment-box.dark-mode .price,
+.payment-box.dark-mode label,
+.payment-box.dark-mode p {
+  color: #f0f0f0;
+}
+.payment-box.dark-mode input {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+footer.dark-mode p {
+  color: #f0f0f0;
+}
+
+/* Force off-white for remaining text */
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode .event-card p,
+body.dark-mode .cta-text,
+body.dark-mode .payment-box p,
+body.dark-mode .contact-info p,
+body.dark-mode .team-member p {
+  color: #f0f0f0 !important;
+}
+
+/* Dark Mode Boxes */
+body.dark-mode .card,
+body.dark-mode .team-member,
+body.dark-mode .contact-form,
+body.dark-mode .contact-info,
+body.dark-mode .mission-box,
+body.dark-mode .vision-box {
+  background-color: #121212;
+  color: #f0f0f0;
+  border: 1px solid #1e1e1e;
+  box-shadow: none;
+}
+body.dark-mode .card h2,
+body.dark-mode .team-member h4,
+body.dark-mode .contact-form h2,
+body.dark-mode .contact-info h2,
+body.dark-mode .mission-box h2,
+body.dark-mode .vision-box h2 {
+  color: #ff6600;
+}
+body.dark-mode .card p,
+body.dark-mode .team-member p,
+body.dark-mode .contact-form p,
+body.dark-mode .contact-info p,
+body.dark-mode .mission-box p,
+body.dark-mode .vision-box p {
+  color: #f0f0f0;
+}
+/* Mobile nav links */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--card-bg); /* light mode background */
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 1000; /* ensure nav is above other content */
+    transform: translateX(100%); /* start offscreen */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  nav.active {
+    display: flex;
+    transform: translateX(0); /* slide in */
+    opacity: 1;
+  }
+
+  nav a {
+    color: var(--text-color); /* light mode link color */
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--primary-color);
+  }
+
+  /* Dark mode adjustments */
+  body.dark-mode nav {
+    background-color: #1e1e1e;
+  }
+
+  body.dark-mode nav a {
+    color: #f5f5f5; /* readable off-white in dark mode */
+  }
+
+  body.dark-mode nav a:hover,
+  body.dark-mode nav a.active {
+    color: #ff6600; /* highlight active link in dark mode */
+  }
+}
+

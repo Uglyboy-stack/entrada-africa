@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Entrada Africa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Entrada Africa</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode">🌙</button>
+  <button class="menu-toggle">&#9776;</button>
+</header>
+
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Discover Events</h1>
+    <p>Browse upcoming events across the country and book your tickets instantly.</p>
+  </div>
+</section>
+
+<section class="event-search">
+  <input type="text" id="searchInput" placeholder="Search events by name, type, or location..." />
+</section>
+
+<section class="container">
+  <div class="event-card" data-title="Concert Night" data-location="Lagos" data-type="Music">
+    <h3>Concert Night</h3>
+    <p>Experience live music from top artists in Lagos.</p>
+    <p><strong>Date:</strong> 20th November 2025</p>
+    <p><strong>Location:</strong> Lagos</p>
+    <button class="buy-btn" onclick="buyTicket('Concert Night', 8000)">Buy Ticket</button>
+  </div>
+
+  <div class="event-card" data-title="Tech Expo 2025" data-location="Abuja" data-type="Technology">
+    <h3>Tech Expo 2025</h3>
+    <p>Explore the latest in technology and network with professionals.</p>
+    <p><strong>Date:</strong> 5th December 2025</p>
+    <p><strong>Location:</strong> Abuja</p>
+    <button class="buy-btn" onclick="buyTicket('Tech Expo 2025', 12000)">Buy Ticket</button>
+  </div>
+
+  <div class="event-card" data-title="Food Festival" data-location="Port Harcourt" data-type="Food">
+    <h3>Food Festival</h3>
+    <p>Sample cuisines from top chefs and local delicacies.</p>
+    <p><strong>Date:</strong> 12th December 2025</p>
+    <p><strong>Location:</strong> Port Harcourt</p>
+    <button class="buy-btn" onclick="buyTicket('Food Festival', 5000)">Buy Ticket</button>
+  </div>
+
+  <div class="event-card" data-title="Art Exhibition" data-location="Lagos" data-type="Art">
+    <h3>Art Exhibition</h3>
+    <p>Explore creative works by emerging and established artists.</p>
+    <p><strong>Date:</strong> 18th December 2025</p>
+    <p><strong>Location:</strong> Lagos</p>
+    <button class="buy-btn" onclick="buyTicket('Art Exhibition', 6500)">Buy Ticket</button>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Entrada Africa. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
