@@ -4,9 +4,9 @@
   --primary-hover: #e65500;
   --secondary-color: #3F3D8C; /* dark blue accent */
   --accent-color: #FFD700; /* gold highlight */
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --card-bg: #ffffff;
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: #fff;
   --footer-bg: #222;
   --footer-text: #aaa;
   --paragraph-dark: #e0e0e0; /* soft text color for dark mode */
@@ -44,9 +44,12 @@ header .logo {
   font-weight: 700;
   color: var(--primary-color);
 }
+
+/* Navigation */
 nav {
   display: flex;
   gap: 25px;
+  transition: all 0.3s ease;
 }
 nav a {
   text-decoration: none;
@@ -54,19 +57,28 @@ nav a {
   font-weight: 600;
   transition: color 0.3s ease;
 }
-nav a.active, nav a:hover {
-  color: var(--primary-color);
+nav a.active,
+nav a:hover {
+  color: var(--accent-color);
 }
 
-/* Hamburger Menu Toggle */
+/* Hamburger Menu */
 .menu-toggle {
-  display: none; /* default hidden, shown on small screens */
+  display: none; /* hidden on desktop */
   font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--primary-color);
   transition: color 0.3s ease;
+  z-index: 1100;
+}
+
+/* Hide Dark Mode Toggle on Mobile */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    display: none !important;
+  }
 }
 
 /* Hero Section */
@@ -74,7 +86,8 @@ nav a.active, nav a:hover {
   text-align: center;
   padding: 100px 20px;
 }
-.hero h1, .hero h2 {
+.hero h1,
+.hero h2 {
   font-size: 48px;
   margin-bottom: 20px;
   color: var(--primary-color);
@@ -122,7 +135,7 @@ nav a.active, nav a:hover {
 }
 
 /* Buttons */
-button, .buy-btn {
+button, .buy-btn, .pay-btn {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
@@ -132,7 +145,7 @@ button, .buy-btn {
   font-weight: 600;
   transition: background 0.3s ease, transform 0.2s ease;
 }
-button:hover, .buy-btn:hover {
+button:hover, .buy-btn:hover, .pay-btn:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
 }
@@ -180,8 +193,12 @@ footer p {
   font-size: 14px;
 }
 
-/* Responsive */
+/* Responsive & Hamburger Menu */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
     display: none;
     flex-direction: column;
@@ -212,18 +229,16 @@ footer p {
   }
 
   nav a:hover, nav a.active {
-    color: var(--primary-color);
+    color: var(--accent-color);
   }
 
   /* Dark mode adjustments */
   body.dark-mode nav {
     background-color: #1e1e1e;
   }
-
   body.dark-mode nav a {
     color: #f0f0f0;
   }
-
   body.dark-mode nav a:hover,
   body.dark-mode nav a.active {
     color: #FFD700;
@@ -232,10 +247,10 @@ footer p {
 
 /* CTA Section Styling */
 .cta-section .cta-heading {
-  color: #000;
+  color: var(--primary-color);
 }
 .cta-section .cta-text {
-  color: #333;
+  color: var(--text-color);
   font-size: 18px;
   margin-top: 10px;
 }
@@ -265,7 +280,7 @@ footer p {
 .payment-box .price {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 30px;
 }
 .payment-box form {
@@ -276,7 +291,7 @@ footer p {
 }
 .payment-box label {
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
 }
 .payment-box input {
   padding: 12px;
@@ -288,12 +303,12 @@ footer p {
 }
 .payment-box input:focus {
   outline: none;
-  border-color: #ff6600;
+  border-color: var(--primary-color);
   box-shadow: 0 0 4px rgba(255,102,0,0.3);
 }
 .pay-btn {
   margin-top: 15px;
-  background-color: #ff6600;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   padding: 15px;
@@ -304,7 +319,7 @@ footer p {
   transition: 0.3s ease;
 }
 .pay-btn:hover {
-  background-color: #e65c00;
+  background-color: var(--primary-hover);
   transform: scale(1.03);
   box-shadow: 0 4px 10px rgba(255,102,0,0.4);
 }
@@ -314,8 +329,6 @@ body.dark-mode {
   background-color: #121212;
   color: #f0f0f0;
 }
-
-/* Header & Nav */
 header.dark-mode {
   background-color: #1e1e1e;
   color: #f0f0f0;
@@ -323,8 +336,6 @@ header.dark-mode {
 .menu-toggle.dark-mode {
   color: #f0f0f0;
 }
-
-/* Hero Section */
 .hero.dark-mode {
   background: linear-gradient(135deg, #3F3D8C, #111);
   color: #f0f0f0;
@@ -336,8 +347,6 @@ header.dark-mode {
 .hero.dark-mode p {
   color: #f0f0f0;
 }
-
-/* Cards & Containers */
 body.dark-mode .card,
 body.dark-mode .team-member,
 body.dark-mode .event-card,
@@ -362,8 +371,6 @@ body.dark-mode .contact-form p,
 body.dark-mode .contact-info p {
   color: #f0f0f0;
 }
-
-/* Buttons */
 .buy-btn.dark-mode,
 button.dark-mode,
 .pay-btn.dark-mode {
@@ -375,8 +382,6 @@ button.dark-mode:hover,
 .pay-btn.dark-mode:hover {
   background-color: #e65500;
 }
-
-/* CTA Section */
 .cta-section.dark-mode {
   background: linear-gradient(135deg, #ff6600, #cc6600);
   color: #f0f0f0;
@@ -387,8 +392,6 @@ button.dark-mode:hover,
 .cta-section.dark-mode .cta-text {
   color: #f0f0f0;
 }
-
-/* Payment Box */
 .payment-box.dark-mode {
   background-color: #1e1e1e;
   color: #f0f0f0;
@@ -410,8 +413,6 @@ button.dark-mode:hover,
   border-color: #FFD700;
   box-shadow: 0 0 4px rgba(255,215,0,0.4);
 }
-
-/* Footer */
 footer.dark-mode {
   background-color: #1e1e1e;
   color: #f0f0f0;
