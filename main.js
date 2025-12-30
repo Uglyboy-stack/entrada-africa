@@ -1,8 +1,9 @@
 // ===============================
-// MOBILE MENU TOGGLE
+// MOBILE MENU TOGGLE (Slide-Out)
 // ===============================
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
+const darkToggle = document.getElementById("darkModeToggle") || document.getElementById("darkToggle");
 
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
@@ -150,9 +151,8 @@ if (window.location.pathname.includes("payment.html")) {
 }
 
 // ===============================
-// DARK MODE TOGGLE
+// DARK MODE TOGGLE (Works Inside Mobile Nav)
 // ===============================
-const darkToggle = document.getElementById("darkToggle") || document.getElementById("darkModeToggle");
 const body = document.body;
 
 if (darkToggle) {
