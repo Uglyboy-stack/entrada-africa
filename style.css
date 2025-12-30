@@ -1,10 +1,12 @@
 /* Base & Theme Colors */
 :root {
-  --primary-color: #ff6600;
+  --primary-color: #ff6600; /* main brand color */
   --primary-hover: #e65500;
-  --bg-color: #f5f5f5;
-  --text-color: #333;
-  --card-bg: #fff;
+  --secondary-color: #3F3D8C; /* dark blue accent */
+  --accent-color: #FFD700; /* gold highlight */
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #ffffff;
   --footer-bg: #222;
   --footer-text: #aaa;
   --paragraph-dark: #e0e0e0; /* soft text color for dark mode */
@@ -63,13 +65,8 @@ nav a.active, nav a:hover {
   background: none;
   border: none;
   cursor: pointer;
-  color: #ff6600; /* visible in light mode */
+  color: var(--primary-color);
   transition: color 0.3s ease;
-}
-
-/* Hamburger color in dark mode */
-body.dark-mode .menu-toggle {
-  color: #fff;
 }
 
 /* Hero Section */
@@ -196,16 +193,40 @@ footer p {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    opacity: 0;
   }
+
   nav.active {
     display: flex;
+    transform: translateX(0);
+    opacity: 1;
   }
-  .menu-toggle {
-    display: block; /* show hamburger on small screens */
+
+  nav a {
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
   }
-  .container {
-    flex-direction: column;
-    align-items: center;
+
+  nav a:hover, nav a.active {
+    color: var(--primary-color);
+  }
+
+  /* Dark mode adjustments */
+  body.dark-mode nav {
+    background-color: #1e1e1e;
+  }
+
+  body.dark-mode nav a {
+    color: #f0f0f0;
+  }
+
+  body.dark-mode nav a:hover,
+  body.dark-mode nav a.active {
+    color: #FFD700;
   }
 }
 
@@ -293,55 +314,87 @@ body.dark-mode {
   background-color: #121212;
   color: #f0f0f0;
 }
-header.dark-mode, footer.dark-mode {
+
+/* Header & Nav */
+header.dark-mode {
   background-color: #1e1e1e;
   color: #f0f0f0;
 }
-nav.dark-mode a {
+.menu-toggle.dark-mode {
   color: #f0f0f0;
 }
+
+/* Hero Section */
 .hero.dark-mode {
-  background: linear-gradient(135deg, #333, #111);
+  background: linear-gradient(135deg, #3F3D8C, #111);
   color: #f0f0f0;
 }
 .hero.dark-mode h1,
 .hero.dark-mode h2 {
-  color: #ff6600;
+  color: #FFD700;
 }
 .hero.dark-mode p {
   color: #f0f0f0;
 }
-.event-card.dark-mode {
-  background-color: #1f1f1f;
+
+/* Cards & Containers */
+body.dark-mode .card,
+body.dark-mode .team-member,
+body.dark-mode .event-card,
+body.dark-mode .contact-form,
+body.dark-mode .contact-info {
+  background-color: #1e1e1e;
   color: #f0f0f0;
   border: 1px solid #333;
+  box-shadow: none;
 }
-.event-card.dark-mode h3 {
-  color: #fff;
+body.dark-mode .card h2,
+body.dark-mode .team-member h4,
+body.dark-mode .event-card h3,
+body.dark-mode .contact-form h2,
+body.dark-mode .contact-info h2 {
+  color: #FFD700;
 }
-.event-card.dark-mode p {
+body.dark-mode .card p,
+body.dark-mode .team-member p,
+body.dark-mode .event-card p,
+body.dark-mode .contact-form p,
+body.dark-mode .contact-info p {
   color: #f0f0f0;
 }
-.buy-btn.dark-mode {
+
+/* Buttons */
+.buy-btn.dark-mode,
+button.dark-mode,
+.pay-btn.dark-mode {
   background-color: #ff6600;
   color: #fff;
 }
+.buy-btn.dark-mode:hover,
+button.dark-mode:hover,
+.pay-btn.dark-mode:hover {
+  background-color: #e65500;
+}
+
+/* CTA Section */
 .cta-section.dark-mode {
   background: linear-gradient(135deg, #ff6600, #cc6600);
   color: #f0f0f0;
 }
 .cta-section.dark-mode .cta-heading {
-  color: #fff;
+  color: #FFD700;
 }
 .cta-section.dark-mode .cta-text {
   color: #f0f0f0;
 }
+
+/* Payment Box */
 .payment-box.dark-mode {
-  background-color: #1f1f1f;
+  background-color: #1e1e1e;
   color: #f0f0f0;
 }
 .payment-box.dark-mode h2 {
-  color: #ff6600;
+  color: #FFD700;
 }
 .payment-box.dark-mode .price,
 .payment-box.dark-mode label,
@@ -353,96 +406,16 @@ nav.dark-mode a {
   color: #f0f0f0;
   border: 1px solid #444;
 }
+.payment-box.dark-mode input:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 4px rgba(255,215,0,0.4);
+}
+
+/* Footer */
+footer.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
 footer.dark-mode p {
   color: #f0f0f0;
 }
-
-/* Force off-white for remaining text */
-body.dark-mode p,
-body.dark-mode label,
-body.dark-mode .event-card p,
-body.dark-mode .cta-text,
-body.dark-mode .payment-box p,
-body.dark-mode .contact-info p,
-body.dark-mode .team-member p {
-  color: #f0f0f0 !important;
-}
-
-/* Dark Mode Boxes */
-body.dark-mode .card,
-body.dark-mode .team-member,
-body.dark-mode .contact-form,
-body.dark-mode .contact-info,
-body.dark-mode .mission-box,
-body.dark-mode .vision-box {
-  background-color: #121212;
-  color: #f0f0f0;
-  border: 1px solid #1e1e1e;
-  box-shadow: none;
-}
-body.dark-mode .card h2,
-body.dark-mode .team-member h4,
-body.dark-mode .contact-form h2,
-body.dark-mode .contact-info h2,
-body.dark-mode .mission-box h2,
-body.dark-mode .vision-box h2 {
-  color: #ff6600;
-}
-body.dark-mode .card p,
-body.dark-mode .team-member p,
-body.dark-mode .contact-form p,
-body.dark-mode .contact-info p,
-body.dark-mode .mission-box p,
-body.dark-mode .vision-box p {
-  color: #f0f0f0;
-}
-/* Mobile nav links */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    background: var(--card-bg); /* light mode background */
-    position: absolute;
-    top: 70px;
-    right: 50px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    z-index: 1000; /* ensure nav is above other content */
-    transform: translateX(100%); /* start offscreen */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
-    opacity: 0;
-  }
-
-  nav.active {
-    display: flex;
-    transform: translateX(0); /* slide in */
-    opacity: 1;
-  }
-
-  nav a {
-    color: var(--text-color); /* light mode link color */
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-
-  nav a:hover, nav a.active {
-    color: var(--primary-color);
-  }
-
-  /* Dark mode adjustments */
-  body.dark-mode nav {
-    background-color: #1e1e1e;
-  }
-
-  body.dark-mode nav a {
-    color: #f5f5f5; /* readable off-white in dark mode */
-  }
-
-  body.dark-mode nav a:hover,
-  body.dark-mode nav a.active {
-    color: #ff6600; /* highlight active link in dark mode */
-  }
-}
-
